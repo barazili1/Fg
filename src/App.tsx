@@ -12,8 +12,8 @@ export default function App() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [currentScreen, setCurrentScreen] = useState<AppScreen>(AppScreen.SPLASH);
   const [userId, setUserId] = useState<string>('');
-  const [platform, setPlatform] = useState<'1xbet' | 'melbet'>('1xbet');
-  const [subPlatform, setSubPlatform] = useState<string>('1xbet');
+  const [platform, setPlatform] = useState<'gooobet' | 'megapari'>('gooobet');
+  const [subPlatform, setSubPlatform] = useState<string>('gooobet');
   const [generatedKey, setGeneratedKey] = useState<string>('');
   const [prefilledPassword, setPrefilledPassword] = useState<string>('');
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -69,7 +69,7 @@ export default function App() {
     setCurrentScreen(AppScreen.CHOOSE_PLATFORM);
   };
 
-  const handleSelectPlatform = (selectedPlatform: '1xbet' | 'melbet') => {
+  const handleSelectPlatform = (selectedPlatform: 'gooobet' | 'megapari') => {
     setPlatform(selectedPlatform);
     setSubPlatform(selectedPlatform + ' vip');
     setCurrentScreen(AppScreen.CONDITION);
@@ -82,7 +82,7 @@ export default function App() {
 
   const handleConditionSubmit = (
     enteredUserId: string,
-    chosenPlatform: '1xbet' | 'melbet',
+    chosenPlatform: 'gooobet' | 'megapari',
     chosenSubPlatform: string,
     depositImg: string,
     promoImg: string

@@ -52,7 +52,7 @@ export default function Splash({ onComplete }: SplashProps) {
           
           <div className="relative w-28 h-28 rounded-3xl bg-neutral-950 flex items-center justify-center border border-red-600/30 shadow-[0_0_30px_rgba(255,0,51,0.25)] overflow-hidden">
             <img 
-              src="https://cdn.phototourl.com/free/2026-07-13-3b44d7af-3f59-4ae9-b6b8-1db9963126cb.jpg" 
+              src="https://cdn.phototourl.com/free/2026-07-13-ceb6ef65-041b-42c8-8b8e-b481093f773b.jpg" 
               alt="Apple Hack Logo" 
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"

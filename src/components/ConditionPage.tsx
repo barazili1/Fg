@@ -13,14 +13,14 @@ import {
 } from 'lucide-react';
 
 interface ConditionPageProps {
-  initialPlatform: '1xbet' | 'melbet';
+  initialPlatform: 'gooobet' | 'megapari';
   onBack: () => void;
-  onSubmit: (userId: string, platform: '1xbet' | 'melbet', subPlatform: string, depositScreenshot: string, promoScreenshot: string) => void;
+  onSubmit: (userId: string, platform: 'gooobet' | 'megapari', subPlatform: string, depositScreenshot: string, promoScreenshot: string) => void;
   addToast: (text: string, type: 'success' | 'error' | 'info') => void;
 }
 
 export default function ConditionPage({ initialPlatform, onBack, onSubmit }: ConditionPageProps) {
-  const [platform, setPlatform] = useState<'1xbet' | 'melbet'>(initialPlatform);
+  const [platform, setPlatform] = useState<'gooobet' | 'megapari'>(initialPlatform);
   const [subPlatform, setSubPlatform] = useState<string>(initialPlatform + ' vip');
   const [userId, setUserId] = useState('');
 
@@ -42,7 +42,7 @@ export default function ConditionPage({ initialPlatform, onBack, onSubmit }: Con
   }, [initialPlatform]);
 
   const getPromoCode = () => {
-    return 'TOP1';
+    return 'Gooo33';
   };
 
   const handleCopyPromo = () => {
@@ -64,8 +64,10 @@ export default function ConditionPage({ initialPlatform, onBack, onSubmit }: Con
     setShowDownloadDialog(true);
   };
 
-  const handleDownloadPlatform = (selected: '1xbet' | 'melbet') => {
-    const url = selected === '1xbet' ? 'https://eg-1xbet.com/ar/mobile' : 'https://melbetegypt.com/en/mobile';
+  const handleDownloadPlatform = (selected: 'gooobet' | 'megapari') => {
+    const url = selected === 'gooobet' 
+      ? 'https://gooobetaffiliate.com/L?tag=d_2787091m_127929c_&site=2787091&ad=127929' 
+      : 'https://refpazitag.top/L?tag=d_2787591m_54987c_&site=2787591&ad=54987';
     window.open(url, '_blank');
     setPlatformInstalled(true);
     setShowDownloadDialog(false);
@@ -221,7 +223,7 @@ export default function ConditionPage({ initialPlatform, onBack, onSubmit }: Con
             
             <button
               type="button"
-              onClick={() => handleSocialClick('https://t.me/+M1rJzZZGaRFmOTc0', 'telegram')}
+              onClick={() => handleSocialClick('https://t.me/+GqKpGbFjOaBjYTQ8', 'telegram')}
               className="w-full flex items-center justify-between p-4 rounded-2xl bg-black/80 border-2 border-white/[0.04] hover:border-red-500/40 hover:bg-red-950/10 transition-all duration-300 flex-row-reverse text-right cursor-pointer"
             >
               <div className="flex items-center gap-3 flex-row-reverse">
@@ -512,23 +514,23 @@ export default function ConditionPage({ initialPlatform, onBack, onSubmit }: Con
             </div>
 
             <div className="space-y-3">
-              {/* Option 1: 1X CASINO */}
+              {/* Option 1: Gooobet */}
               <button
                 type="button"
-                onClick={() => handleDownloadPlatform('1xbet')}
+                onClick={() => handleDownloadPlatform('gooobet')}
                 className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-black/60 border border-blue-500/20 hover:border-blue-500/50 hover:bg-blue-950/10 transition-all duration-300 flex-row-reverse text-right cursor-pointer group"
               >
                 <div className="flex items-center gap-3 flex-row-reverse">
                   <div className="w-12 h-12 rounded-xl overflow-hidden bg-black border border-blue-500/20 shrink-0">
                     <img 
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNsRBeLNrj4EDPxWbAkLLw6DJsJmZMLnwhNMdlhU5HEw&s=10" 
-                      alt="1X CASINO" 
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGbkZkXXlmDZFAEFlUQmETqMPCMFFm4ANTKW3oNquLJQ&s" 
+                      alt="Gooobet" 
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div>
-                    <h4 className="text-xs font-black text-white group-hover:text-blue-400 transition-colors">تحميل تطبيق 1X CASINO</h4>
+                    <h4 className="text-xs font-black text-white group-hover:text-blue-400 transition-colors">تحميل تطبيق Gooobet</h4>
                     <p className="text-[9px] text-slate-500 font-bold mt-0.5">الموقع الرسمي للتنزيل</p>
                   </div>
                 </div>
@@ -537,23 +539,23 @@ export default function ConditionPage({ initialPlatform, onBack, onSubmit }: Con
                 </span>
               </button>
 
-              {/* Option 2: AVABET */}
+              {/* Option 2: Megapari */}
               <button
                 type="button"
-                onClick={() => handleDownloadPlatform('melbet')}
+                onClick={() => handleDownloadPlatform('megapari')}
                 className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-black/60 border border-amber-500/20 hover:border-amber-500/50 hover:bg-amber-950/10 transition-all duration-300 flex-row-reverse text-right cursor-pointer group"
               >
                 <div className="flex items-center gap-3 flex-row-reverse">
                   <div className="w-12 h-12 rounded-xl overflow-hidden bg-black border border-amber-500/20 shrink-0">
                     <img 
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt9KLV7HEKfqgyWj5wGpcq2N918Gnowqhp6NofT5z7M1bM17a7ezw01G8&s=10" 
-                      alt="AVABET" 
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIm6McaZwHmyMmJNTUaT1Eo05PdDvdmwIAd-mwJ3hM3Q&s=10" 
+                      alt="Megapari" 
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div>
-                    <h4 className="text-xs font-black text-white group-hover:text-amber-400 transition-colors">تحميل تطبيق AVABET</h4>
+                    <h4 className="text-xs font-black text-white group-hover:text-amber-400 transition-colors">تحميل تطبيق Megapari</h4>
                     <p className="text-[9px] text-slate-500 font-bold mt-0.5">الموقع الرسمي للتنزيل</p>
                   </div>
                 </div>

@@ -11,7 +11,7 @@ export interface UserState {
   userId: string;
   activationKey: string;
   isActivated: boolean;
-  platform: '1xbet' | 'melbet';
+  platform: 'gooobet' | 'megapari';
   subPlatform?: string;
   screenshotDeposit: string | null;
   screenshotPromocode: string | null;

@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { ArrowLeft, Shield, Sparkles, Trophy, Zap } from 'lucide-react';
 
 interface ChoosePlatformProps {
-  onSelect: (platform: '1xbet' | 'melbet') => void;
+  onSelect: (platform: 'gooobet' | 'megapari') => void;
   onBack?: () => void;
 }
 
@@ -63,11 +63,11 @@ export default function ChoosePlatform({ onSelect, onBack }: ChoosePlatformProps
 
         {/* Platforms Stack */}
         <div className="space-y-4 w-full">
-          {/* 1X CASINO Card */}
+          {/* Gooobet Card */}
           <motion.button
             whileHover={{ scale: 1.02, translateY: -2 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => onSelect('1xbet')}
+            onClick={() => onSelect('gooobet')}
             className="w-full relative group text-right rounded-2xl p-5 border border-white/[0.08] hover:border-red-500/50 bg-gradient-to-l from-neutral-950 to-neutral-900/90 hover:from-neutral-950 hover:to-red-950/20 shadow-xl transition-all overflow-hidden flex items-center justify-between gap-4 cursor-pointer"
           >
             {/* Soft background light */}
@@ -82,11 +82,11 @@ export default function ChoosePlatform({ onSelect, onBack }: ChoosePlatformProps
 
             {/* Right side: Content + Logo */}
             <div className="flex items-center gap-4 flex-row-reverse text-right">
-              {/* Customized 1X CASINO Logo Image */}
+              {/* Customized Gooobet Logo Image */}
               <div className="w-16 h-16 rounded-xl overflow-hidden bg-black border border-blue-500/30 flex items-center justify-center shadow-lg group-hover:shadow-blue-500/10 group-hover:border-blue-400/50 transition-all shrink-0">
                 <img 
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNsRBeLNrj4EDPxWbAkLLw6DJsJmZMLnwhNMdlhU5HEw&s=10" 
-                  alt="1X CASINO" 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGbkZkXXlmDZFAEFlUQmETqMPCMFFm4ANTKW3oNquLJQ&s" 
+                  alt="Gooobet" 
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
@@ -94,23 +94,23 @@ export default function ChoosePlatform({ onSelect, onBack }: ChoosePlatformProps
 
               <div>
                 <span className="block text-[10px] font-mono tracking-widest text-blue-400 font-extrabold uppercase mb-0.5">
-                  1X CASINO NETWORK
+                  GOOOBET NETWORK
                 </span>
                 <h3 className="text-lg font-black text-slate-100 font-sans tracking-wide">
-                  1X CASINO
+                  Gooobet
                 </h3>
                 <p className="text-[11px] text-slate-400 font-medium mt-1">
-                  تفعيل الخادم لتوقعات كازينو 1X والمنصة الشريكة
+                  تفعيل الخادم لتوقعات كازينو Gooobet والمنصة الشريكة
                 </p>
               </div>
             </div>
           </motion.button>
 
-          {/* AVABET Card */}
+          {/* Megapari Card */}
           <motion.button
             whileHover={{ scale: 1.02, translateY: -2 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => onSelect('melbet')}
+            onClick={() => onSelect('megapari')}
             className="w-full relative group text-right rounded-2xl p-5 border border-white/[0.08] hover:border-red-500/50 bg-gradient-to-l from-neutral-950 to-neutral-900/90 hover:from-neutral-950 hover:to-red-950/20 shadow-xl transition-all overflow-hidden flex items-center justify-between gap-4 cursor-pointer"
           >
             {/* Soft background light */}
@@ -125,11 +125,11 @@ export default function ChoosePlatform({ onSelect, onBack }: ChoosePlatformProps
 
             {/* Right side: Content + Logo */}
             <div className="flex items-center gap-4 flex-row-reverse text-right">
-              {/* Customized AVABET Logo Image */}
+              {/* Customized Megapari Logo Image */}
               <div className="w-16 h-16 rounded-xl overflow-hidden bg-black border border-amber-500/30 flex items-center justify-center shadow-lg group-hover:shadow-amber-500/10 group-hover:border-amber-400/50 transition-all shrink-0">
                 <img 
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt9KLV7HEKfqgyWj5wGpcq2N918Gnowqhp6NofT5z7M1bM17a7ezw01G8&s=10" 
-                  alt="AVABET" 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIm6McaZwHmyMmJNTUaT1Eo05PdDvdmwIAd-mwJ3hM3Q&s=10" 
+                  alt="Megapari" 
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
@@ -137,13 +137,13 @@ export default function ChoosePlatform({ onSelect, onBack }: ChoosePlatformProps
 
               <div>
                 <span className="block text-[10px] font-mono tracking-widest text-amber-500 font-extrabold uppercase mb-0.5">
-                  AVABET ELITE NETWORK
+                  MEGAPARI ELITE NETWORK
                 </span>
                 <h3 className="text-lg font-black text-slate-100 font-sans tracking-wide">
-                  AVABET
+                  Megapari
                 </h3>
                 <p className="text-[11px] text-slate-400 font-medium mt-1">
-                  تفعيل الخادم المباشر وتوقعات ذكاء AVABET الاصطناعي
+                  تفعيل الخادم المباشر وتوقعات ذكاء Megapari الاصطناعي
                 </p>
               </div>
             </div>

@@ -18,7 +18,7 @@ import {
 
 interface PredictionScreenProps {
   userId: string;
-  platform: '1xbet' | 'melbet';
+  platform: 'gooobet' | 'megapari';
   subPlatform?: string;
   onLogout: () => void;
   addToast: (text: string, type: 'success' | 'error' | 'info') => void;
@@ -162,11 +162,11 @@ export default function PredictionScreen({ userId, platform, subPlatform, onLogo
 
   // Simulated live payouts winners list
   const [winners, setWinners] = useState<Winner[]>([
-    { id: '1', userId: '5829****21', amount: '+450 EGP', platform: '1xbet', time: 'Just now' },
-    { id: '2', userId: '1029****56', amount: '+12.50$', platform: 'melbet', time: '1s ago' },
-    { id: '3', userId: '9381****10', amount: '+1,500 EGP', platform: '1xbet', time: '2s ago' },
-    { id: '4', userId: '4829****04', amount: '+45.00$', platform: '1xbet', time: '4s ago' },
-    { id: '5', userId: '2019****88', amount: '+750 EGP', platform: 'melbet', time: '5s ago' }
+    { id: '1', userId: '5829****21', amount: '+450 EGP', platform: 'gooobet', time: 'Just now' },
+    { id: '2', userId: '1029****56', amount: '+12.50$', platform: 'megapari', time: '1s ago' },
+    { id: '3', userId: '9381****10', amount: '+1,500 EGP', platform: 'gooobet', time: '2s ago' },
+    { id: '4', userId: '4829****04', amount: '+45.00$', platform: 'gooobet', time: '4s ago' },
+    { id: '5', userId: '2019****88', amount: '+750 EGP', platform: 'megapari', time: '5s ago' }
   ]);
 
   // Online metrics fluctuation
@@ -227,7 +227,7 @@ export default function PredictionScreen({ userId, platform, subPlatform, onLogo
         id: Math.random().toString(),
         userId: newUserId,
         amount: randomAmount,
-        platform: Math.random() > 0.45 ? '1xbet' : 'melbet',
+        platform: Math.random() > 0.45 ? 'gooobet' : 'megapari',
         time: 'Just now'
       };
 
@@ -736,7 +736,7 @@ export default function PredictionScreen({ userId, platform, subPlatform, onLogo
                 >
                   <div className="flex items-center gap-2">
                     <div className="px-2 py-0.5 rounded-lg text-[8px] font-mono tracking-wide font-black uppercase bg-crimson/15 text-crimson-bright border border-crimson/25">
-                      {winner.platform === '1xbet' ? '1X CASINO' : 'AVABET'}
+                      {winner.platform === 'gooobet' ? 'Gooobet' : 'Megapari'}
                     </div>
                     <span className="font-mono text-[11px] font-bold text-slate-300 pl-1">
                       ID: {winner.userId}
