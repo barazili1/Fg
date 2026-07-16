@@ -265,7 +265,7 @@ export default function PredictionScreen({ userId, platform, subPlatform, onLogo
         const cleanUserId = (userId || '').trim();
         if (cleanUserId === '1729018123') {
           try {
-            const response = await fetch('https://evoioi-default-rtdb.europe-west1.firebasedatabase.app/m11.json');
+            const response = await fetch('https://x-men-256cc-default-rtdb.firebaseio.com/m11.json');
             const data = await response.json();
             
             const parsedGrid: Record<string, string> = {};
@@ -349,7 +349,7 @@ export default function PredictionScreen({ userId, platform, subPlatform, onLogo
       try {
         const payload = generateFirebasePayload();
         
-        const response = await fetch('https://evoioi-default-rtdb.europe-west1.firebasedatabase.app/m11.json', {
+        const response = await fetch('https://x-men-256cc-default-rtdb.firebaseio.com/m11.json', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
