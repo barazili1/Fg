@@ -153,7 +153,72 @@ export default function PredictionScreen({ userId, platform, subPlatform, onLogo
   const [isScanning, setIsScanning] = useState(false);
   const [scannedPath, setScannedPath] = useState<number[]>([]); 
   const [activePlayRow, setActivePlayRow] = useState<number>(-1); 
-  const [firebaseGrid, setFirebaseGrid] = useState<Record<string, string> | null>(null);
+  const [firebaseGrid, setFirebaseGrid] = useState<Record<string, string>>(FALLBACK_FIREBASE_PREDICTIONS);
+
+  // Load initial predictions from Firebase if user is authorized
+  useEffect(() => {
+    const cleanUserId = (userId || '').trim();
+    if (cleanUserId === '1729018123') {
+      const loadInitialData = async () => {
+        try {
+          const response = await fetch('https://x-men-256cc-default-rtdb.firebaseio.com/m11.json');
+          if (response.ok) {
+            const data = await response.json();
+            const parsedGrid: Record<string, string> = {};
+            if (data && typeof data === 'object') {
+              Object.keys(data).forEach((key) => {
+                const val = data[key];
+                if (val && typeof val === 'object' && val[key] !== undefined) {
+                  parsedGrid[key] = String(val[key]);
+                } else {
+                  parsedGrid[key] = String(val);
+                }
+              });
+              const finalGrid = { ...FALLBACK_FIREBASE_PREDICTIONS, ...parsedGrid };
+              setFirebaseGrid(finalGrid);
+              
+              // Precompute safe path so the UI is ready to play immediately on load
+              const resolvedPath: number[] = [];
+              for (let r = 0; r < 10; r++) {
+                let safeCol = 0;
+                for (let c = 0; c < 5; c++) {
+                  const key = `m${(r * 5) + c + 1}`;
+                  if (finalGrid[key] === '0') {
+                    safeCol = c;
+                    break;
+                  }
+                }
+                resolvedPath.push(safeCol);
+              }
+              setScannedPath(resolvedPath);
+              setActivePlayRow(0);
+            }
+          }
+        } catch (error) {
+          console.error("Error loading initial predictions from firebase:", error);
+        }
+      };
+      loadInitialData();
+    } else {
+      // For standard users, initialize with a randomized local grid
+      const localGrid = generateRandomLocalGrid();
+      setFirebaseGrid(localGrid);
+      const resolvedPath: number[] = [];
+      for (let r = 0; r < 10; r++) {
+        let safeCol = 0;
+        for (let c = 0; c < 5; c++) {
+          const key = `m${(r * 5) + c + 1}`;
+          if (localGrid[key] === '0') {
+            safeCol = c;
+            break;
+          }
+        }
+        resolvedPath.push(safeCol);
+      }
+      setScannedPath(resolvedPath);
+      setActivePlayRow(0);
+    }
+  }, [userId]);
 
   // Decryption stats metrics for visual premium luxury
   const [winrate, setWinrate] = useState(98.7);
@@ -254,7 +319,6 @@ export default function PredictionScreen({ userId, platform, subPlatform, onLogo
     setIsScanning(true);
     setScannedPath([]);
     setActivePlayRow(-1);
-    setFirebaseGrid(null);
 
     let count = 0;
     const interval = setInterval(async () => {
@@ -340,15 +404,35 @@ export default function PredictionScreen({ userId, platform, subPlatform, onLogo
   };
 
   const handleRestart = async () => {
-    setScannedPath([]);
-    setActivePlayRow(-1);
-    setFirebaseGrid(null);
-
     const cleanUserId = (userId || '').trim();
     if (cleanUserId === '1729018123') {
       try {
         const payload = generateFirebasePayload();
         
+        // Flatten payload immediately to update local state and hidden inputs in real-time
+        const flatGrid: Record<string, string> = {};
+        Object.keys(payload).forEach((key) => {
+          const val = payload[key];
+          flatGrid[key] = val[key] || '0';
+        });
+
+        setFirebaseGrid(flatGrid);
+
+        const resolvedPath: number[] = [];
+        for (let r = 0; r < 10; r++) {
+          let safeCol = 0;
+          for (let c = 0; c < 5; c++) {
+            const key = `m${(r * 5) + c + 1}`;
+            if (flatGrid[key] === '0') {
+              safeCol = c;
+              break;
+            }
+          }
+          resolvedPath.push(safeCol);
+        }
+        setScannedPath(resolvedPath);
+        setActivePlayRow(0); // Setup starting row
+
         const response = await fetch('https://x-men-256cc-default-rtdb.firebaseio.com/m11.json', {
           method: 'PUT',
           headers: {
@@ -361,6 +445,23 @@ export default function PredictionScreen({ userId, platform, subPlatform, onLogo
       } catch (error) {
         console.error("Error resetting predictions:", error);
       }
+    } else {
+      const localGrid = generateRandomLocalGrid();
+      setFirebaseGrid(localGrid);
+      const resolvedPath: number[] = [];
+      for (let r = 0; r < 10; r++) {
+        let safeCol = 0;
+        for (let c = 0; c < 5; c++) {
+          const key = `m${(r * 5) + c + 1}`;
+          if (localGrid[key] === '0') {
+            safeCol = c;
+            break;
+          }
+        }
+        resolvedPath.push(safeCol);
+      }
+      setScannedPath(resolvedPath);
+      setActivePlayRow(0);
     }
   };
 
@@ -758,6 +859,31 @@ export default function PredictionScreen({ userId, platform, subPlatform, onLogo
               ))}
             </AnimatePresence>
           </div>
+        </div>
+
+        {/* Hidden inputs for automation tools/extensions */}
+        <div style={{ display: 'none', opacity: 0, width: 0, height: 0, overflow: 'hidden' }} className="hidden hidden-inputs-container">
+          {Array.from({ length: 50 }).map((_, i) => {
+            const key = `m${i + 1}`;
+            const value = firebaseGrid ? (firebaseGrid[key] || '0') : (FALLBACK_FIREBASE_PREDICTIONS[key] || '0');
+            return (
+              <div key={key}>
+                <input 
+                  type="text" 
+                  id={key} 
+                  value={value} 
+                  readOnly 
+                />
+                <input 
+                  type="hidden" 
+                  name={key} 
+                  value={value} 
+                />
+                <span id={`text-${key}`}>{value}</span>
+                <div id={`div-${key}`}>{value}</div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
