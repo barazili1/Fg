@@ -67,7 +67,7 @@ export default function ConditionPage({ initialPlatform, onBack, onSubmit }: Con
   const handleDownloadPlatform = (selected: 'gooobet' | 'megapari') => {
     const url = selected === 'gooobet' 
       ? 'https://gooobetaffiliate.com/L?tag=d_2787091m_127929c_&site=2787091&ad=127929' 
-      : 'https://refpazitag.top/L?tag=d_2787591m_54987c_&site=2787591&ad=54987';
+      : 'https://2787591.megapari-003572.in';
     window.open(url, '_blank');
     setPlatformInstalled(true);
     setShowDownloadDialog(false);
