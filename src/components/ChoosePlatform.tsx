@@ -110,7 +110,7 @@ export default function ChoosePlatform({ onSelect, onBack }: ChoosePlatformProps
           <motion.button
             whileHover={{ scale: 1.02, translateY: -2 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => onSelect('megapari')}
+            onClick={() => onSelect('grandpari')}
             className="w-full relative group text-right rounded-2xl p-5 border border-white/[0.08] hover:border-red-500/50 bg-gradient-to-l from-neutral-950 to-neutral-900/90 hover:from-neutral-950 hover:to-red-950/20 shadow-xl transition-all overflow-hidden flex items-center justify-between gap-4 cursor-pointer"
           >
             {/* Soft background light */}
