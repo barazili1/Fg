@@ -548,8 +548,8 @@ export default function ConditionPage({ initialPlatform, onBack, onSubmit }: Con
                 <div className="flex items-center gap-3 flex-row-reverse">
                   <div className="w-12 h-12 rounded-xl overflow-hidden bg-black border border-amber-500/20 shrink-0">
                     <img 
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIm6McaZwHmyMmJNTUaT1Eo05PdDvdmwIAd-mwJ3hM3Q&s=10" 
-                      alt="Megapari" 
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE7BIHpbdFuCCwcK-zAT3iXgvBosZyYNWVH2I1OATNqA&s=10" 
+                      alt="Grandpari" 
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-cover"
                     />
