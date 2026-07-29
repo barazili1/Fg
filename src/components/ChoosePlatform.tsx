@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { ArrowLeft, Shield, Sparkles, Trophy, Zap } from 'lucide-react';
 
 interface ChoosePlatformProps {
-  onSelect: (platform: 'gooobet' | 'megapari') => void;
+  onSelect: (platform: 'gooobet' | 'grandpari') => void;
   onBack?: () => void;
 }
 
@@ -128,8 +128,8 @@ export default function ChoosePlatform({ onSelect, onBack }: ChoosePlatformProps
               {/* Customized Megapari Logo Image */}
               <div className="w-16 h-16 rounded-xl overflow-hidden bg-black border border-amber-500/30 flex items-center justify-center shadow-lg group-hover:shadow-amber-500/10 group-hover:border-amber-400/50 transition-all shrink-0">
                 <img 
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIm6McaZwHmyMmJNTUaT1Eo05PdDvdmwIAd-mwJ3hM3Q&s=10" 
-                  alt="Megapari" 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE7BIHpbdFuCCwcK-zAT3iXgvBosZyYNWVH2I1OATNqA&s=10" 
+                  alt="Grandpari" 
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
@@ -137,13 +137,13 @@ export default function ChoosePlatform({ onSelect, onBack }: ChoosePlatformProps
 
               <div>
                 <span className="block text-[10px] font-mono tracking-widest text-amber-500 font-extrabold uppercase mb-0.5">
-                  MEGAPARI ELITE NETWORK
+                  GRANDPARI ELITE NETWORK
                 </span>
                 <h3 className="text-lg font-black text-slate-100 font-sans tracking-wide">
                   Megapari
                 </h3>
                 <p className="text-[11px] text-slate-400 font-medium mt-1">
-                  تفعيل الخادم المباشر وتوقعات ذكاء Megapari الاصطناعي
+                  تفعيل الخادم المباشر وتوقعات ذكاء Grandpari الاصطناعي
                 </p>
               </div>
             </div>
