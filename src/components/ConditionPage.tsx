@@ -13,14 +13,14 @@ import {
 } from 'lucide-react';
 
 interface ConditionPageProps {
-  initialPlatform: 'gooobet' | 'megapari';
+  initialPlatform: 'gooobet' | 'grandpari';
   onBack: () => void;
-  onSubmit: (userId: string, platform: 'gooobet' | 'megapari', subPlatform: string, depositScreenshot: string, promoScreenshot: string) => void;
+  onSubmit: (userId: string, platform: 'gooobet' | 'grandpari', subPlatform: string, depositScreenshot: string, promoScreenshot: string) => void;
   addToast: (text: string, type: 'success' | 'error' | 'info') => void;
 }
 
 export default function ConditionPage({ initialPlatform, onBack, onSubmit }: ConditionPageProps) {
-  const [platform, setPlatform] = useState<'gooobet' | 'megapari'>(initialPlatform);
+  const [platform, setPlatform] = useState<'gooobet' | 'grandpari'>(initialPlatform);
   const [subPlatform, setSubPlatform] = useState<string>(initialPlatform + ' vip');
   const [userId, setUserId] = useState('');
 
@@ -67,7 +67,7 @@ export default function ConditionPage({ initialPlatform, onBack, onSubmit }: Con
   const handleDownloadPlatform = (selected: 'gooobet' | 'megapari') => {
     const url = selected === 'gooobet' 
       ? 'https://gooobetaffiliate.com/L?tag=d_2787091m_127929c_&site=2787091&ad=127929' 
-      : 'https://2787591.megapari-003572.in';
+      : 'https://refpa97242.com/L?tag=d_5668376m_128959c_&site=5668376&ad=128959';
     window.open(url, '_blank');
     setPlatformInstalled(true);
     setShowDownloadDialog(false);
