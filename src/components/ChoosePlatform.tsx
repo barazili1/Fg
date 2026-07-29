@@ -140,7 +140,7 @@ export default function ChoosePlatform({ onSelect, onBack }: ChoosePlatformProps
                   GRANDPARI ELITE NETWORK
                 </span>
                 <h3 className="text-lg font-black text-slate-100 font-sans tracking-wide">
-                  Megapari
+                  Grandpari
                 </h3>
                 <p className="text-[11px] text-slate-400 font-medium mt-1">
                   تفعيل الخادم المباشر وتوقعات ذكاء Grandpari الاصطناعي
