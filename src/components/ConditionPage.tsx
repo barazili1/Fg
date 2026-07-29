@@ -555,7 +555,7 @@ export default function ConditionPage({ initialPlatform, onBack, onSubmit }: Con
                     />
                   </div>
                   <div>
-                    <h4 className="text-xs font-black text-white group-hover:text-amber-400 transition-colors">تحميل تطبيق Megapari</h4>
+                    <h4 className="text-xs font-black text-white group-hover:text-amber-400 transition-colors">تحميل تطبيق Grandpari</h4>
                     <p className="text-[9px] text-slate-500 font-bold mt-0.5">الموقع الرسمي للتنزيل</p>
                   </div>
                 </div>
